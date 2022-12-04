@@ -2,9 +2,9 @@ import express from 'express';
 import data from './data.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import { fileURLToPath } from 'url';
-import path from 'path';
-import { dirname } from 'path';
+// import { fileURLToPath } from 'url';
+// import path from 'path';
+// import { dirname } from 'path';
 import productRouter from './routes/productRouter.js';
 import userRouter from './routes/userRouter.js';
 import orderRouter from './routes/orderRouter.js';
@@ -123,16 +123,16 @@ io.on('connection', (socket) => {
   });
 });
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-// server static assets if in production
-if(process.env.NODE_ENV === 'production'){    
-  app.use(express.static('client/build'))  // set static folder 
-  //returning frontend for any route other than api 
-  app.get('*',(req,res)=>{     
-      res.sendFile (path.resolve(__dirname,'client','build','index.html' ));    
-  });
-}
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
+// // server static assets if in production
+// if(process.env.NODE_ENV === 'production'){    
+//   app.use(express.static('client/build'))  // set static folder 
+//   //returning frontend for any route other than api 
+//   app.get('*',(req,res)=>{     
+//       res.sendFile (path.resolve(__dirname,'client','build','index.html' ));    
+//   });
+// }
 
 
 httpServer.listen(port, () => {
